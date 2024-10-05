@@ -138,6 +138,7 @@ pd.DataFrame(np.random.randint(0, 10, size=(100, 5)), columns=list('ABCDE')).map
 df01 = pd.read_sql('select * from table01', conn)
 df02 = pd.read_sql('select * from table02', conn)
 display(df01)
+display(df02)
 
 vis.line(df01.values, opts=dict(legend=df01.columns.tolist()))
 vis.bar(df02['A'].value_counts().values, opts=dict(rownames=df02['A'].value_counts().index.tolist()))
