@@ -185,4 +185,43 @@ vis.close()
 ```
 
 
+</br></br></br>
+## SQLite
+
+```python
+import sqlite3
+import numpy as np
+import pandas as pd
+
+conn = sqlite3.connect('databases.db')
+conn.close()
+
+conn = sqlite3.connect('database01.db')
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE01', conn, index=False)
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE02', conn, index=False)
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE03', conn, index=False)
+conn.close()
+
+conn = sqlite3.connect('database02.db')
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE04', conn, index=False)
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE05', conn, index=False)
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE06', conn, index=False)
+conn.close()
+
+conn = sqlite3.connect('database03.db')
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE07', conn, index=False)
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE08', conn, index=False)
+pd.DataFrame(np.random.randint(0, 5, size=(30, 5)), columns=list('ABCDE')).map(lambda x: dict(enumerate(['a', 'b', 'c', 'd', 'e']))[x]).to_sql('TABLE09', conn, index=False)
+conn.close()
+
+conn = sqlite3.connect('databases.db')
+conn.execute('ATTACH DATABASE "database01.db" AS db1')
+conn.execute('ATTACH DATABASE "database02.db" AS db2')
+conn.execute('ATTACH DATABASE "database03.db" AS db3')
+pd.read_sql('select * from db1.sqlite_master', conn)
+pd.read_sql('select * from db2.sqlite_master', conn)
+pd.read_sql('select * from db3.sqlite_master', conn)
+conn.close()
+```
+
 
