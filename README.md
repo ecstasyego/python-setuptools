@@ -209,7 +209,6 @@ vis.close()
 ```
 
 
-</br></br></br>
 ### SQLite
 
 ```python
