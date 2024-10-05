@@ -136,8 +136,11 @@ vis = visdom.Visdom()
 
 # images
 vis.images(np.random.normal(size=(300,500)), opts=dict(title='gray image'))
+vis.images(np.random.normal(size=(300,500)), opts=dict(title='gray image', caption='description'))
 vis.images(np.random.normal(size=(3, 300, 500)), opts=dict(title='color image'))
+vis.images(np.random.normal(size=(3, 300, 500)), opts=dict(title='color image', caption='description'))
 vis.images(np.random.normal(size=(5, 3, 300, 500)), opts=dict(title='images'))
+vis.images(np.random.normal(size=(5, 3, 300, 500)), opts=dict(title='images', caption='description'))
 
 # pie
 vis.pie(np.array([10, 20, 30, 40, 50]), opts=dict(title='pie', legend=['legend1', 'legend2', 'legend3', 'legend4', 'legend5'], showlegend=True))
