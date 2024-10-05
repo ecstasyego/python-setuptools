@@ -120,3 +120,14 @@ git branch -m main
 git remote add origin https://github.com/ecstasyego/python-setuptools
 git push -f origin main
 ```
+
+
+</br></br></br>
+## Visom
+```bash
+python -m visdom.server
+```
+
+
+
+
