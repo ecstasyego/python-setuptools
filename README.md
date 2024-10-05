@@ -116,6 +116,7 @@ pip install -r requirements.txt
 git init
 git add .
 git commit -m "initialize"
+git branch -m main
 git remote add origin https://github.com/ecstasyego/python-setuptools
 git push -f origin main
 ```
