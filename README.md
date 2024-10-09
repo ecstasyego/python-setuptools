@@ -185,6 +185,9 @@ import numpy as np
 import visdom
 
 vis = visdom.Visdom()
+vis.check_connection()
+vis.get_env_list()
+vis.server, vis.port
 
 # images
 vis.images(np.random.normal(size=(300,500)), opts=dict(title='gray image'))
