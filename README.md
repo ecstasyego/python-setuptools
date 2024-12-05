@@ -130,6 +130,67 @@ set -g prefix C-a
 
 ### Vim
 ```bash
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim universal-ctags
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/preservim/tagbar.git
+mv tagbar ~/.vim/bundle
+```
+`.vimrc`
+```bash
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'majutsushi/tagbar'
+Plugin 'lfv89/vim-interestingwords'
+Plugin 'mattesgroeger/vim-bookmarks'
+
+call vundle#end()
+filetype plugin indent on
+ 
+set hlsearch
+set tabstop=4
+set shiftwidth=4
+
+" Plugin setup "
+""""""""""""""""
+
+" nerdtree
+map <Tab> :NERDTreeToggle<CR>
+
+" tagbar
+let g:Tlist_Ctags_Cmd='/usr/bin/ctags'
+map <leader><Tab> :TagbarToggle<CR>
+ 
+" vim-interestingwords
+let g:interestingWordsGUIColors = ['#00FF7C', '#0400FF', '#00FFF0', '#FF0000', '#FFEC00', '#FFB3FF', '#A70C03', '#B81055', '#C606A9', '#BC3FEC', '#9A78FD', '#6AA2F9', '#2BC1E4', '#14D9C2', '#4BEF8D', '#8EFE15']
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
+nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
+nnoremap <silent> n :call WordNavigation('forward')<cr>
+nnoremap <silent> N :call WordNavigation('backward')<cr>
+set termguicolors
+ 
+" vimspector
+"let g:vimspector_enable_mappings = 'HUMAN'
+"packadd! vimspector
+
+" vim-bookmarks
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
+
+" :source %
+" :PluginInstall
 ```
 
 </br></br></br>
