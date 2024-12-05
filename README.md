@@ -146,6 +146,7 @@ vis.bar(df02['A'].value_counts().values, opts=dict(rownames=df02['A'].value_coun
 conn.close()
 vis.close()
 ```
+  
 ### Application
 ```python
 import os, shutil
@@ -174,7 +175,7 @@ vis.bar(df02['A'].value_counts().values, opts=dict(rownames=df02['A'].value_coun
 conn.close()
 vis.close()
 ```
-
+  
 ### Visom
 ```bash
 python -m visdom.server
@@ -239,7 +240,7 @@ vis.scatter(
 vis.close()
 ```
 
-
+  
 ### SQLite
 
 ```python
@@ -279,3 +280,41 @@ conn.close()
 ```
 
 
+  
+### Dash
+```python
+import dash
+import dash_bootstrap_components as dbc
+from dash import dcc, html
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=external_stylesheets)
+app.title = "TITLE"
+app.layout = dcc.Markdown("Hello, World!")
+
+if __name__ == '__main__':
+    app.run_server(host="127.0.0.1", port='8050', debug=True)
+```
+
+  
+### PyQt5
+```python
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Window(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setCentralWidget(QtWidgets.QWidget(self))
+        self.setMenuBar(QtWidgets.QMenuBar(self))
+        self.setStatusBar(QtWidgets.QStatusBar(self))
+        QtCore.QMetaObject.connectSlotsByName(self)
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+
+    window = Window()
+    window.show()
+    sys.exit(app.exec_())
+```
