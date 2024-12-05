@@ -141,6 +141,8 @@ mv tagbar ~/.vim/bundle
 ```
 `.vimrc`
 ```bash
+map <C-E> <C-W>
+
 set nocompatible
 filetype off
 
