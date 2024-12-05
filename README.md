@@ -111,7 +111,7 @@ pip install -r requirements.txt
 
 
 </br></br></br>
-## Git
+### Git
 ```bash
 git init
 git add .
@@ -121,6 +121,16 @@ git remote add origin https://github.com/ecstasyego/python-setuptools
 git push -f origin main
 ```
 
+### Tmux
+`.tmux.conf`
+```bash
+unbind C-b
+set -g prefix C-a
+```
+
+### Vim
+```bash
+```
 
 </br></br></br>
 ### Analysis
