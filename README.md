@@ -367,7 +367,7 @@ app.title = "TITLE"
 app.layout = dcc.Markdown("Hello, World!")
 
 if __name__ == '__main__':
-    app.run_server(host="127.0.0.1", port='8050', debug=True)
+    app.run(host="127.0.0.1", port='8050', debug=True)
 ```
 
   
